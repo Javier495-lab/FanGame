@@ -6,8 +6,8 @@ public class Seguridad : MonoBehaviour
     public Canvas camaras;
     public Camera[] secCamaras;
     private Camera camaraActual;
-   
-    public void ActivarCamaras()
+
+    void OnMouseDown()
     {
         camaras.enabled = true;
         secCamaras[0].enabled = false;
