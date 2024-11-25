@@ -12744,7 +12744,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1193511169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17288,6 +17288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camaras: {fileID: 1990492786}
+  oficina: {fileID: 1193511171}
   secCamaras:
   - {fileID: 1342387020}
   - {fileID: 918957839}

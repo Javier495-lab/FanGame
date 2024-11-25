@@ -4,11 +4,13 @@ using UnityEngine.UI;
 public class Seguridad : MonoBehaviour
 {
     public Canvas camaras;
+    public Canvas oficina;
     public Camera[] secCamaras;
     private Camera camaraActual;
 
     void OnMouseDown()
     {
+        oficina.enabled = false;
         camaras.enabled = true;
         secCamaras[0].enabled = false;
         camaraActual = secCamaras[1];
@@ -26,6 +28,7 @@ public class Seguridad : MonoBehaviour
     {
         Debug.Log("se ejecuta");
         camaras.enabled = false;
+        oficina.enabled=true;
         CambioCamara(0);
     }
 }
