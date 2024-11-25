@@ -24,6 +24,7 @@ public class Seguridad : MonoBehaviour
 
     public void Volver()
     {
+        Debug.Log("se ejecuta");
         camaras.enabled = false;
         CambioCamara(0);
     }
