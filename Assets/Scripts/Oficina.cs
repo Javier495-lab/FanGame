@@ -9,8 +9,8 @@ public class Oficina : MonoBehaviour
     private Vector3 targetPosition; 
     private Vector3 targetRotation;
 
-    public Canvas[] posButtons;
-    private Canvas currentButtons;
+    public GameObject[] posButtons;
+    private GameObject currentButtons;
     
     public float moveSpeed;   
     public float rotateSpeed; 
@@ -22,13 +22,12 @@ public class Oficina : MonoBehaviour
 
     public void StartMoveAndRotate(int position)
     {
-        currentButtons.enabled = false;
+        currentButtons.SetActive(false);
         currentButtons = posButtons[position];
         targetPosition = camPositions[position];
         targetRotation = camRotations[position];
-        currentButtons.enabled = true;
-
         StartCoroutine(CamMovement());
+        Debug.Log("current pos:" + position);
     }
 
     private IEnumerator CamMovement()
@@ -39,9 +38,10 @@ public class Oficina : MonoBehaviour
 
             Quaternion targetRot = Quaternion.Euler(targetRotation);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, rotateSpeed * Time.deltaTime);
-            if ((transform.position == targetPosition)  && (transform.rotation == targetRot))
+            if ((Vector3.Distance(transform.position, targetPosition) < 0.1f && Quaternion.Angle(transform.rotation, targetRot) < 0.1f))
             {
                 Debug.Log("Destino");
+                currentButtons.SetActive(true);
                 yield break; 
             }
             yield return null;
