@@ -75,11 +75,4 @@ public class Oficina : MonoBehaviour
             yield return null;
         }
     }
-    private void linterna()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            flashlightB = !flashlightB;
-        }
-    }
 }

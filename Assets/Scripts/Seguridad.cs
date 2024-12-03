@@ -7,6 +7,8 @@ public class Seguridad : MonoBehaviour
     public Canvas oficina;
     public Camera[] secCamaras;
     private Camera camaraActual;
+    public Light[] lights;
+    private int currentCam;
 
     void OnMouseDown()
     {
@@ -21,7 +23,19 @@ public class Seguridad : MonoBehaviour
     {
         camaraActual.enabled = false;
         camaraActual = secCamaras[numeroCamara];
+        currentCam = numeroCamara;
         camaraActual.enabled = true;
+    }
+
+    public void Flash()
+    {
+        if (!lights[currentCam].enabled)
+        {
+            lights[currentCam].enabled = true;
+        } else if (lights[currentCam].enabled)
+        {
+            lights[currentCam].enabled = false;
+        }
     }
 
     public void Volver()
