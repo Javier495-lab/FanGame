@@ -13,7 +13,9 @@ public class Oficina : MonoBehaviour
     private GameObject currentButtons;
     
     public float moveSpeed;   
-    public float rotateSpeed; 
+    public float rotateSpeed;
+
+    public float currenPos;
 
     void Start()
     {
@@ -26,8 +28,8 @@ public class Oficina : MonoBehaviour
         currentButtons = posButtons[position];
         targetPosition = camPositions[position];
         targetRotation = camRotations[position];
+        currenPos = position;
         StartCoroutine(CamMovement());
-        Debug.Log("current pos:" + position);
     }
 
     private IEnumerator CamMovement()
