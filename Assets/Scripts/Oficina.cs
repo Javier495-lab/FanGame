@@ -11,15 +11,41 @@ public class Oficina : MonoBehaviour
 
     public GameObject[] posButtons;
     private GameObject currentButtons;
+    private Light flashlight;
     
-    public float moveSpeed;   
+    public float moveSpeed;
     public float rotateSpeed;
+    public bool flashlightB;
 
     public float currenPos;
 
     void Start()
     {
         currentButtons = posButtons[0];
+        flashlight = GetComponentInChildren<Light>();
+    }
+    private void Update()
+    {
+        if (currenPos == 2)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                flashlightB = !flashlightB;
+
+                if (flashlightB)
+                {
+                    flashlight.enabled = true;
+                }
+                else if(!flashlightB)
+                {
+                    flashlight.enabled = false;
+                }
+            }
+        }
+        else
+        {
+            flashlight.enabled = false;
+        }
     }
 
     public void StartMoveAndRotate(int position)
@@ -47,6 +73,13 @@ public class Oficina : MonoBehaviour
                 yield break; 
             }
             yield return null;
+        }
+    }
+    private void linterna()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            flashlightB = !flashlightB;
         }
     }
 }
