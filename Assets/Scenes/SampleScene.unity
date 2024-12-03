@@ -18705,6 +18705,7 @@ MonoBehaviour:
   - {fileID: 1724967163}
   moveSpeed: 7
   rotateSpeed: 7
+  flashlightB: 0
   currenPos: 0
 --- !u!1 &1377378922
 GameObject:
@@ -22956,7 +22957,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Flash
+  m_text: Lights
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
