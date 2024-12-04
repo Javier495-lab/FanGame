@@ -8,7 +8,7 @@ public class Seguridad : MonoBehaviour
     public Camera[] secCamaras;
     private Camera camaraActual;
     public Light[] lights;
-    private int currentCam;
+    [SerializeField]private int currentCam;
 
     void OnMouseDown()
     {
@@ -29,12 +29,12 @@ public class Seguridad : MonoBehaviour
 
     public void Flash()
     {
-        if (!lights[currentCam].enabled)
+        if (!lights[currentCam-1].enabled)
         {
-            lights[currentCam].enabled = true;
-        } else if (lights[currentCam].enabled)
+            lights[currentCam-1].enabled = true;
+        } else if (lights[currentCam - 1].enabled)
         {
-            lights[currentCam].enabled = false;
+            lights[currentCam-1].enabled = false;
         }
     }
 
