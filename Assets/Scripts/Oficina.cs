@@ -68,7 +68,6 @@ public class Oficina : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, rotateSpeed * Time.deltaTime);
             if ((Vector3.Distance(transform.position, targetPosition) < 0.1f && Quaternion.Angle(transform.rotation, targetRot) < 0.1f))
             {
-                Debug.Log("Destino");
                 currentButtons.SetActive(true);
                 yield break; 
             }

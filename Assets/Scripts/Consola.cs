@@ -1,10 +1,16 @@
+using System;
+using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Consola : MonoBehaviour
 {
     public Canvas consola;
     public Canvas oficina;
-    [Range(0, 1)] public float[] cuenta;
+    [Range(0, 100)] public float[] cuenta;
+    public TextMeshProUGUI[] numericos;
+    public bool activado;
+    public float incrementSpeed;
 
     void OnMouseDown()
     {
@@ -20,15 +26,26 @@ public class Consola : MonoBehaviour
 
     public void Energuia(int rele)
     {
-
+        if (!activado)
+        {
+            StartCoroutine(IncrementRele(rele));
+            GameManager.instance.AddPower(0.3f);
+            activado = true;
+        } else if (activado)
+        {
+            StopAllCoroutines();
+            GameManager.instance.SubPower(0.3f);
+            activado= false;
+        }
     }
-    void Start()
+    private IEnumerator IncrementRele(int rele)
     {
-        
-    }
-
-    void Update()
-    {
-        
+        while (true)
+        {
+            cuenta[rele] += incrementSpeed * Time.deltaTime;
+            cuenta[rele] = (float)Math.Round(cuenta[rele], 2);
+            numericos[rele].text = cuenta[rele].ToString() + "%";
+            yield return null;
+        }
     }
 }
