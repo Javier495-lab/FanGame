@@ -631,12 +631,12 @@ MonoBehaviour:
   - 0
   numericos:
   - {fileID: 1611723333}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  activado: 0
+  - {fileID: 1323482100}
+  - {fileID: 1348197233}
+  - {fileID: 1060418036}
+  - {fileID: 2125250047}
+  - {fileID: 1921021162}
+  activado: 000000000000
   incrementSpeed: 1
 --- !u!1 &23116518
 GameObject:
@@ -16068,14 +16068,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066660609}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.341, y: 4.076, z: 29.814}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.8981094, y: -0.6089997, z: 2.0639992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1332948251}
   - {fileID: 1692591718}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2003785211}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1077116419
 GameObject:
@@ -29437,7 +29437,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -31759,6 +31759,8 @@ Transform:
   - {fileID: 1600427379}
   - {fileID: 524475294}
   - {fileID: 1327290132}
+  - {fileID: 1066660610}
+  - {fileID: 2008945589}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2008945583
@@ -32070,11 +32072,11 @@ Transform:
   m_GameObject: {fileID: 2008945583}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.9584859, w: 0.28513998}
-  m_LocalPosition: {x: 14.481, y: 4.98, z: 29.607}
+  m_LocalPosition: {x: -1.7581091, y: 0.29500008, z: 1.8570004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2003785211}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 146.866}
 --- !u!1 &2029895534
 GameObject:
@@ -34107,7 +34109,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Exit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -34134,8 +34136,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 113.1
+  m_fontSizeBase: 113.1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -34917,15 +34919,13 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 1142800230}
   - {fileID: 682241674}
-  - {fileID: 1066660610}
   - {fileID: 1009500449}
   - {fileID: 1342387021}
+  - {fileID: 2003785211}
   - {fileID: 1193511172}
   - {fileID: 1990492787}
   - {fileID: 681234505}
   - {fileID: 2039876283}
   - {fileID: 1914978089}
-  - {fileID: 2003785211}
   - {fileID: 311950922}
   - {fileID: 1727153347}
-  - {fileID: 2008945589}

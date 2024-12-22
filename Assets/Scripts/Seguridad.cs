@@ -29,12 +29,12 @@ public class Seguridad : MonoBehaviour
 
     public void Flash()
     {
-        if (!lights[currentCam-1].enabled)
+        if (!lights[currentCam].enabled)
         {
-            lights[currentCam-1].enabled = true;
-        } else if (lights[currentCam - 1].enabled)
+            lights[currentCam].enabled = true;
+        } else if (lights[currentCam].enabled)
         {
-            lights[currentCam-1].enabled = false;
+            lights[currentCam].enabled = false;
         }
     }
 
