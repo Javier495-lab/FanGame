@@ -1,17 +1,30 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 public class WinCondition : MonoBehaviour
 {
-    public float[] values = new float[6]; // Los 6 valores
+    public Canvas consola;
+    public Canvas oficina;
+    [Range(0, 100)]public float[] values; // Los 6 valores
     public float maxValue = 100f;         // Valor máximo
     public float increaseSpeed = 20f;     // Velocidad de incremento
     public Button[] buttons;             // Referencias a los botones
-    public Text[] valueTexts;            // Referencias a los textos que muestran los valores
+    public TextMeshProUGUI[] valueTexts;            // Referencias a los textos que muestran los valores
 
-    private bool[] isIncreasing = new bool[6]; // Bandera para saber si el botón está presionado
+    public bool[] isIncreasing = new bool[6]; // Bandera para saber si el botón está presionado
 
+    void OnMouseDown()
+    {
+        oficina.enabled = false;
+        consola.enabled = true;
+    }
+    public void Volver()
+    {
+        consola.enabled = false;
+        oficina.enabled = true;
+    }
     void Start()
     {
         // Inicializar valores a 0
