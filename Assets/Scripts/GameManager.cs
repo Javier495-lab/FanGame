@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
         if (power >= 1)
         {
             dark = true;
+            power = 0;
         }
         if (completado)
         {

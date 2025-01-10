@@ -661,7 +661,7 @@ MonoBehaviour:
   - 0
   - 0
   maxValue: 100
-  increaseSpeed: 4
+  increaseSpeed: 0.3
   buttons:
   - {fileID: 1077116421}
   - {fileID: 1899769787}

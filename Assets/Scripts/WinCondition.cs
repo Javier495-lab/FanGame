@@ -7,38 +7,40 @@ public class WinCondition : MonoBehaviour
 {
     public Canvas consola;
     public Canvas oficina;
-    [Range(0, 100)]public float[] values; // Los 6 valores
-    public float maxValue = 100f;         // Valor máximo
-    public float increaseSpeed = 20f;     // Velocidad de incremento
-    public Button[] buttons;             // Referencias a los botones
-    public TextMeshProUGUI[] valueTexts;            // Referencias a los textos que muestran los valores
+    [Range(0, 100)]public float[] values;
+    public float maxValue = 100f;
+    public float increaseSpeed;
+    public Button[] buttons;
+    public TextMeshProUGUI[] valueTexts;
 
-    public bool[] isIncreasing = new bool[6]; // Bandera para saber si el botón está presionado
+    public bool[] isIncreasing = new bool[6];
 
     void OnMouseDown()
     {
-        oficina.enabled = false;
-        consola.enabled = true;
+        if (!GameManager.instance.dark)
+        {
+            oficina.enabled = false;
+            consola.enabled = true;
+        }
     }
     public void Volver()
     {
         consola.enabled = false;
         oficina.enabled = true;
     }
+
     void Start()
     {
-        // Inicializar valores a 0
         for (int i = 0; i < values.Length; i++)
         {
             values[i] = 0f;
-            int index = i; // Necesario para evitar problemas con closures en lambdas
+            int index = i;
             buttons[i].onClick.AddListener(() => StartIncrease(index));
         }
     }
 
     void Update()
     {
-        // Incrementar valores si están en aumento
         for (int i = 0; i < values.Length; i++)
         {
             if (isIncreasing[i])
@@ -48,22 +50,35 @@ public class WinCondition : MonoBehaviour
                 {
                     values[i] = maxValue;
                 }
-                valueTexts[i].text = values[i].ToString("F1"); // Actualizar el texto
+                valueTexts[i].text = values[i].ToString("F1");
             }
+        }
+        if (GameManager.instance.dark)
+        {
+            consola.enabled = false;
+            oficina.enabled = true;
+            StopIncreases();
         }
     }
 
     public void StartIncrease(int index)
     {
-        isIncreasing[index] = true; // Iniciar el incremento
-        Invoke("StopIncrease", 0.1f); // Detener el incremento después de un breve lapso
+        if (isIncreasing[index])
+        {
+            GameManager.instance.SubPower(0.3f);
+            isIncreasing[index] = !isIncreasing[index];
+        } else if (!isIncreasing[index])
+        {
+            GameManager.instance.AddPower(0.3f);
+            isIncreasing[index] = !isIncreasing[index];
+        }
     }
 
-    public void StopIncrease()
+    private void StopIncreases()
     {
         for (int i = 0; i < isIncreasing.Length; i++)
         {
-            isIncreasing[i] = false; // Detener todos los incrementos
+            isIncreasing[i] = false;
         }
     }
 }
