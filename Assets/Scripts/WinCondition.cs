@@ -14,6 +14,7 @@ public class WinCondition : MonoBehaviour
     public TextMeshProUGUI[] valueTexts;
 
     public bool[] isIncreasing = new bool[6];
+    public bool[] goal = new bool[6];
 
     void OnMouseDown()
     {
@@ -53,7 +54,16 @@ public class WinCondition : MonoBehaviour
                 valueTexts[i].text = values[i].ToString("F1");
             }
         }
-        if (GameManager.instance.dark)
+        for (int i = 0; i < values.Length; i++)
+        {
+            if (values[i] >= 100f && !goal[i])
+            {
+                GameManager.instance.Completado();
+                buttons[i].enabled = false;
+                goal[i] = true;
+            }
+        }
+            if (GameManager.instance.dark)
         {
             consola.enabled = false;
             oficina.enabled = true;
