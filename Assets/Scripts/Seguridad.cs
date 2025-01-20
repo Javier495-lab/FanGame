@@ -5,6 +5,7 @@ public class Seguridad : MonoBehaviour
 {
     public Canvas camaras;
     public Canvas oficina;
+    public Camera mainCamera;
     public Camera[] secCamaras;
     private Camera camaraActual;
     public Light[] lights;
@@ -14,8 +15,8 @@ public class Seguridad : MonoBehaviour
     {
         oficina.enabled = false;
         camaras.enabled = true;
-        secCamaras[0].enabled = false;
-        camaraActual = secCamaras[1];
+        mainCamera.enabled = false;
+        camaraActual = secCamaras[currentCam];
         camaraActual.enabled = true;
     }
 
@@ -40,8 +41,9 @@ public class Seguridad : MonoBehaviour
 
     public void Volver()
     {
+        oficina.enabled = true;
         camaras.enabled = false;
-        oficina.enabled=true;
-        CambioCamara(0);
+        mainCamera.enabled = true;
+        camaraActual.enabled = false;
     }
 }
