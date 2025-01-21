@@ -9,15 +9,41 @@ public class Seguridad : MonoBehaviour
     public Camera[] secCamaras;
     private Camera camaraActual;
     public Light[] lights;
+    public float batería;
     [SerializeField]private int currentCam;
 
+    private void Start()
+    {
+        camaraActual = secCamaras[1];
+    }
+    private void Update()
+    {
+        if (GameManager.instance.dark)
+        {
+            oficina.enabled = true;
+            camaras.enabled = false;
+            mainCamera.enabled = true;
+            camaraActual.enabled = false;
+            foreach (Light i in lights)
+            {
+                i.enabled = false;
+            }
+        }
+    }
     void OnMouseDown()
     {
-        oficina.enabled = false;
-        camaras.enabled = true;
-        mainCamera.enabled = false;
-        camaraActual = secCamaras[currentCam];
-        camaraActual.enabled = true;
+        if (!GameManager.instance.dark)
+        {
+            oficina.enabled = false;
+            camaras.enabled = true;
+            mainCamera.enabled = false;
+            camaraActual = secCamaras[currentCam];
+            camaraActual.enabled = true;
+        }
+        else
+        {
+            Debug.Log("abrir reparación");
+        }
     }
 
     public void CambioCamara(int numeroCamara)
@@ -32,9 +58,11 @@ public class Seguridad : MonoBehaviour
     {
         if (!lights[currentCam].enabled)
         {
+            GameManager.instance.AddPower(0.1f);
             lights[currentCam].enabled = true;
         } else if (lights[currentCam].enabled)
         {
+            GameManager.instance.SubPower(0.1f);
             lights[currentCam].enabled = false;
         }
     }
