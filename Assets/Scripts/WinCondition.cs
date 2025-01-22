@@ -16,10 +16,13 @@ public class WinCondition : MonoBehaviour
     public bool[] isIncreasing = new bool[6];
     public bool[] goal = new bool[6];
 
+    public BoxCollider palancaColl;
+
     void OnMouseDown()
     {
         if (!GameManager.instance.dark)
         {
+            palancaColl.enabled = false;
             oficina.enabled = false;
             consola.enabled = true;
         }
@@ -28,6 +31,7 @@ public class WinCondition : MonoBehaviour
     {
         consola.enabled = false;
         oficina.enabled = true;
+        palancaColl.enabled = true;
     }
 
     void Start()
@@ -59,6 +63,7 @@ public class WinCondition : MonoBehaviour
             if (values[i] >= 100f && !goal[i])
             {
                 GameManager.instance.Completado();
+                GameManager.instance.SubPower(0.3f);
                 buttons[i].enabled = false;
                 goal[i] = true;
             }

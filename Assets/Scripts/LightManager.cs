@@ -19,6 +19,14 @@ public class LightManager : MonoBehaviour
                 encendido = false;
             }
         }
+        else
+        {
+            foreach (Light i in lucesCasa)
+            {
+                i.enabled = true;
+                encendido = true;
+            }
+        }
     }
 
     private void OnMouseDown()
