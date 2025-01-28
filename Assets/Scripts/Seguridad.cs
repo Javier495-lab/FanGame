@@ -11,6 +11,7 @@ public class Seguridad : MonoBehaviour
     public Light[] lights;
     public float batería;
     [SerializeField]private int currentCam;
+    private bool quitarCanvasOficina = true;
 
     private void Start()
     {
@@ -18,7 +19,7 @@ public class Seguridad : MonoBehaviour
     }
     private void Update()
     {
-        if (GameManager.instance.dark)
+        if (GameManager.instance.dark && quitarCanvasOficina)
         {
             oficina.enabled = true;
             camaras.enabled = false;
@@ -28,6 +29,7 @@ public class Seguridad : MonoBehaviour
             {
                 i.enabled = false;
             }
+            quitarCanvasOficina = false;
         }
     }
     void OnMouseDown()
@@ -39,6 +41,7 @@ public class Seguridad : MonoBehaviour
             mainCamera.enabled = false;
             camaraActual = secCamaras[currentCam];
             camaraActual.enabled = true;
+            quitarCanvasOficina = true;
         }
     }
 

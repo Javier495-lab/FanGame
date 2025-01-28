@@ -22,7 +22,7 @@ public class LightManager : MonoBehaviour
             {
                 i.enabled = false;
             }
-        } else if (GameManager.instance.encendidoManual)
+        } else if ((GameManager.instance.encendidoManual && !GameManager.instance.dark) || (!GameManager.instance.apagadoSeguro && !GameManager.instance.dark))
         {
             foreach (Light i in lucesCasa)
             {

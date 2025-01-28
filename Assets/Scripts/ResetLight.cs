@@ -64,6 +64,10 @@ public class ResetLight : MonoBehaviour
         }
         if (GameManager.instance.checkCompletados == 5)
         {
+            foreach (float i in checkpoints)
+            {
+                //meter aquí que se reseteen los checkpointes, que no me acuerdo
+            }
             Volver();
         }
     }

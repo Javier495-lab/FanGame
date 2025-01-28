@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
         {
             dark = true;
             power = 0;
+            apagadoSeguro= false;
         }
 
         if (completado)
