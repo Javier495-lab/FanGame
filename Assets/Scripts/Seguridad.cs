@@ -40,10 +40,6 @@ public class Seguridad : MonoBehaviour
             camaraActual = secCamaras[currentCam];
             camaraActual.enabled = true;
         }
-        else
-        {
-            Debug.Log("abrir reparación");
-        }
     }
 
     public void CambioCamara(int numeroCamara)

@@ -12,6 +12,7 @@ public class WinCondition : MonoBehaviour
     public float increaseSpeed;
     public Button[] buttons;
     public TextMeshProUGUI[] valueTexts;
+    private bool quitarCanvasOficina = true;
 
     public bool[] isIncreasing = new bool[6];
     public bool[] goal = new bool[6];
@@ -25,6 +26,7 @@ public class WinCondition : MonoBehaviour
             palancaColl.enabled = false;
             oficina.enabled = false;
             consola.enabled = true;
+            quitarCanvasOficina = true;
         }
     }
     public void Volver()
@@ -68,11 +70,12 @@ public class WinCondition : MonoBehaviour
                 goal[i] = true;
             }
         }
-            if (GameManager.instance.dark)
+        if (GameManager.instance.dark && quitarCanvasOficina)
         {
             consola.enabled = false;
             oficina.enabled = true;
             StopIncreases();
+            quitarCanvasOficina = false;
         }
     }
 

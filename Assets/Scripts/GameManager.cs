@@ -6,6 +6,10 @@ public class GameManager : MonoBehaviour
     public bool dark = false;
     public int completados = 0;
     private bool completado = false;
+    public bool encendidoManual = false;
+    public bool apagadoSeguro = false;
+    private bool checkCompletado = false;
+    public int checkCompletados = 0;
     public static GameManager instance { get; private set; }
 
     private void Awake()
@@ -27,6 +31,7 @@ public class GameManager : MonoBehaviour
             dark = true;
             power = 0;
         }
+
         if (completado)
         {
             completados++;
@@ -35,6 +40,20 @@ public class GameManager : MonoBehaviour
         if (completados == 6)
         {
             Debug.Log("has acabado");
+        }
+
+        if (checkCompletado)
+        {
+            checkCompletados++;
+            checkCompletado = false;
+        }
+        if (checkCompletados == 5)
+        {
+            encendidoManual = true;
+            checkCompletados = 0;
+            dark = false;
+            power = 0.2f;
+            encendidoManual = false;
         }
     }
     public void AddPower(float plusPower)
@@ -56,5 +75,10 @@ public class GameManager : MonoBehaviour
     public void Completado()
     {
         completado = true;
+    }
+
+    public void CheckCompletado()
+    {
+        checkCompletado = true;
     }
 }

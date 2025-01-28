@@ -3,7 +3,8 @@ using UnityEngine;
 public class LightManager : MonoBehaviour
 {
     public Light []lucesCasa;
-    private bool encendido = true;
+    public Light[] lucesBrightness;
+    
     void Start()
     {
         
@@ -16,15 +17,20 @@ public class LightManager : MonoBehaviour
             foreach (Light i in lucesCasa)
             {
                 i.enabled = false;
-                encendido = false;
             }
-        }
-        else
+            foreach (Light i in lucesBrightness)
+            {
+                i.enabled = false;
+            }
+        } else if (GameManager.instance.encendidoManual)
         {
             foreach (Light i in lucesCasa)
             {
                 i.enabled = true;
-                encendido = true;
+            }
+            foreach (Light i in lucesBrightness)
+            {
+                i.enabled = true;
             }
         }
     }
@@ -33,22 +39,22 @@ public class LightManager : MonoBehaviour
     {
         if (!GameManager.instance.dark)
         {
-            if (encendido)
+            if (!GameManager.instance.apagadoSeguro)
             {
                 GameManager.instance.SubPower(0.2f);
                 foreach (Light i in lucesCasa)
                 {
                     i.enabled = false;
-                    encendido = false;
+                    GameManager.instance.apagadoSeguro = true;
                 }
             }
-            else if (!encendido)
+            else if (GameManager.instance.apagadoSeguro)
             {
                 GameManager.instance.AddPower(0.2f);
                 foreach (Light i in lucesCasa)
                 {
                     i.enabled = true;
-                    encendido = true;
+                    GameManager.instance.apagadoSeguro = false;
                 }
             }
         }

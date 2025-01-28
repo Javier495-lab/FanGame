@@ -26,20 +26,21 @@ public class Oficina : MonoBehaviour
     }
     private void Update()
     {
-        if (currenPos == 2)
+        if (GameManager.instance.dark || GameManager.instance.apagadoSeguro)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
                 flashlightB = !flashlightB;
-
-                if (flashlightB)
-                {
-                    flashlight.enabled = true;
-                }
-                else if(!flashlightB)
-                {
-                    flashlight.enabled = false;
-                }
+            }
+            if (flashlightB)
+            {
+                flashlight.enabled = true;
+                flashlightB = true;
+            }
+            else if (!flashlightB)
+            {
+                flashlight.enabled = false;
+                flashlightB = false;
             }
         }
         else
