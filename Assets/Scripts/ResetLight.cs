@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 public class ResetLight : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class ResetLight : MonoBehaviour
 
     [SerializeField] private bool[] isIncreasing = new bool[5];
     [SerializeField]private bool[] goal = new bool[5];
+    private bool completado;
     void OnMouseDown()
     {
         if (GameManager.instance.dark)
@@ -62,11 +64,20 @@ public class ResetLight : MonoBehaviour
                 goal[i] = true;
             }
         }
-        if (GameManager.instance.checkCompletados == 5)
+        for (int i = 0; i < goal.Length; i++)
         {
-            foreach (float i in checkpoints)
+            if (!goal[i])
             {
-                //meter aquí que se reseteen los checkpointes, que no me acuerdo
+                completado = true;
+                break;
+            }
+        }
+        if (completado)
+        {
+            for (int i = 0; i < checkpoints.Length; i++)
+            {
+                checkpoints[i] = 0f;
+                completado = false;
             }
             Volver();
         }
