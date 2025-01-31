@@ -4,6 +4,7 @@ public class LightManager : MonoBehaviour
 {
     public Light []lucesCasa;
     public Light[] lucesBrightness;
+    [SerializeField]private float temporizadorEncendidoManual = 0;
     
     void Start()
     {
@@ -22,7 +23,7 @@ public class LightManager : MonoBehaviour
             {
                 i.enabled = false;
             }
-        } else if ((GameManager.instance.encendidoManual && !GameManager.instance.dark) || (!GameManager.instance.apagadoSeguro && !GameManager.instance.dark))
+        } else if (GameManager.instance.encendidoManual)
         {
             foreach (Light i in lucesCasa)
             {
@@ -32,6 +33,13 @@ public class LightManager : MonoBehaviour
             {
                 i.enabled = true;
             }
+            
+            if (temporizadorEncendidoManual >= 1)
+            {
+                GameManager.instance.encendidoManual = false;
+                temporizadorEncendidoManual = 0;
+            }
+            temporizadorEncendidoManual += Time.deltaTime;
         }
     }
 

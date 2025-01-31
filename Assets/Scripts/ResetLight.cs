@@ -16,7 +16,6 @@ public class ResetLight : MonoBehaviour
 
     [SerializeField] private bool[] isIncreasing = new bool[5];
     [SerializeField]private bool[] goal = new bool[5];
-    private bool completado;
     void OnMouseDown()
     {
         if (GameManager.instance.dark)
@@ -64,20 +63,16 @@ public class ResetLight : MonoBehaviour
                 goal[i] = true;
             }
         }
-        for (int i = 0; i < goal.Length; i++)
-        {
-            if (!goal[i])
-            {
-                completado = true;
-                break;
-            }
-        }
-        if (completado)
+        
+        if (completado())
         {
             for (int i = 0; i < checkpoints.Length; i++)
             {
                 checkpoints[i] = 0f;
-                completado = false;
+            }
+            for (int i = 0; i < goal.Length; i++)
+            {
+                goal[i] = false;
             }
             Volver();
         }
@@ -86,5 +81,14 @@ public class ResetLight : MonoBehaviour
     public void StartIncrease(int index)
     {
         isIncreasing[index] = !isIncreasing[index];
+    }
+
+    bool completado()
+    {
+        foreach (bool i in goal)
+        {
+            if (!i) return false;
+        }
+        return true;
     }
 }

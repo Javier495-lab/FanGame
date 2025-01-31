@@ -51,10 +51,9 @@ public class GameManager : MonoBehaviour
         if (checkCompletados == 5)
         {
             encendidoManual = true;
-            checkCompletados = 0;
             dark = false;
             power = 0.2f;
-            encendidoManual = false;
+            checkCompletados = 0;
         }
     }
     public void AddPower(float plusPower)
