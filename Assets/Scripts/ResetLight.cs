@@ -13,6 +13,7 @@ public class ResetLight : MonoBehaviour
     public float increaseSpeed;
     public Button[] buttons;
     public TextMeshProUGUI[] valueTexts;
+    public BoxCollider palanca;
 
     [SerializeField] private bool[] isIncreasing = new bool[5];
     [SerializeField]private bool[] goal = new bool[5];
@@ -28,6 +29,7 @@ public class ResetLight : MonoBehaviour
     {
         reset.enabled = false;
         oficina.enabled = true;
+        palanca.enabled = true;
     }
 
     void Start()
