@@ -28,7 +28,7 @@ public class Oficina : MonoBehaviour
     {
         if (GameManager.instance.dark || GameManager.instance.apagadoSeguro)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F) && currenPos == 2)
             {
                 flashlightB = !flashlightB;
             }

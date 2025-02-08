@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +13,12 @@ public class Seguridad : MonoBehaviour
     public float batería;
     [SerializeField]private int currentCam;
     private bool quitarCanvasOficina = true;
-
+    [Range(0, 100)] public float[] integrities;
+    [SerializeField] private bool isDecreasing;
+    public float decreaseRate = 5f;
+    [SerializeField] private bool[] goal = new bool[5];
+    public TextMeshProUGUI integrity;
+    
     private void Start()
     {
         camaraActual = secCamaras[1];
@@ -31,6 +37,10 @@ public class Seguridad : MonoBehaviour
             }
             quitarCanvasOficina = false;
         }
+        if (isDecreasing)
+        {
+            DecreaseIntegrity();
+        }
     }
     void OnMouseDown()
     {
@@ -42,6 +52,7 @@ public class Seguridad : MonoBehaviour
             camaraActual = secCamaras[currentCam];
             camaraActual.enabled = true;
             quitarCanvasOficina = true;
+            UpdateIntegrityText();
         }
     }
 
@@ -51,6 +62,7 @@ public class Seguridad : MonoBehaviour
         camaraActual = secCamaras[numeroCamara];
         currentCam = numeroCamara;
         camaraActual.enabled = true;
+        UpdateIntegrityText();
     }
 
     public void Flash()
@@ -72,5 +84,30 @@ public class Seguridad : MonoBehaviour
         camaras.enabled = false;
         mainCamera.enabled = true;
         camaraActual.enabled = false;
+    }
+
+    private void UpdateIntegrityText()
+    {
+        if (integrity != null && currentCam < integrities.Length)
+        {
+            integrity.text = "Integrity: " + integrities[currentCam].ToString("F0");
+        }
+    }
+
+    private void DecreaseIntegrity()
+    {
+        for (int i = 0; i < integrities.Length; i++)
+        {
+            if (integrities[i] > 0)
+            {
+                integrities[currentCam] -= decreaseRate * Time.deltaTime;
+                //integrities[i] = Mathf.Clamp(integrities[i], 0, 100);
+            }
+        }
+
+        if (currentCam < integrities.Length)
+        {
+            UpdateIntegrityText();
+        }
     }
 }
