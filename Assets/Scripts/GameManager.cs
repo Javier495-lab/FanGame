@@ -59,10 +59,15 @@ public class GameManager : MonoBehaviour
             checkCompletados = 0;
         }
     }
-    public void ModificarTeleportRate(float nuevoTiempo)
+    public void ModificarMaxTeleportRate(float nuevoTiempo)
     {
-        enemigo.GetComponent<SpawnManager>().waitingTime = nuevoTiempo;
+        enemigo.GetComponent<SpawnManager>().waitingTimeMax = nuevoTiempo;
     }
+    public void ModificarMinTeleportRate(float nuevoTiempo)
+    {
+        enemigo.GetComponent<SpawnManager>().waitingTimeMin = nuevoTiempo;
+    }
+
     public void AddPower(float plusPower)
     {
         power += plusPower;
