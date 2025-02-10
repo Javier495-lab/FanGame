@@ -15,7 +15,7 @@ public class FleeOutside : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Animatronic.transform.position = Vector3.MoveTowards(Animatronic.transform.position, Objective.position, 5 * Time.deltaTime);
+        Animatronic.transform.position = Vector3.MoveTowards(Animatronic.transform.position, Objective.position, 10 * Time.deltaTime);
         Animatronic.transform.LookAt(Objective);
         if (Vector3.Distance(Animatronic.transform.position, Objective.position) <= 0.1f)
         {
