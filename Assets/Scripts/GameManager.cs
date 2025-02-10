@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public int checkCompletados = 0;
     public static GameManager instance { get; private set; }
 
+    private GameObject enemigo;
+
     private void Awake()
     {
         if(instance != null && instance != this)
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+        enemigo = GameObject.FindGameObjectWithTag("Enemy");
     }
 
     private void Update()
@@ -55,6 +58,10 @@ public class GameManager : MonoBehaviour
             power = 0.2f;
             checkCompletados = 0;
         }
+    }
+    public void ModificarTeleportRate(float nuevoTiempo)
+    {
+        enemigo.GetComponent<SpawnManager>().waitingTime = nuevoTiempo;
     }
     public void AddPower(float plusPower)
     {

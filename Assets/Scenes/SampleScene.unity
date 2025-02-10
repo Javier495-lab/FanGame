@@ -45488,16 +45488,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2081233113}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Script: {fileID: 11500000, guid: f2f2dfcd8de92bb42ac90dc89042215a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Graph: {fileID: 720681946146281504, guid: 3c01314799ba94b48ab49236e9c51758, type: 2}
-  m_BlackboardVariableOverridesList: []
-  m_IsInitialised: 0
-  m_IsStarted: 0
-  references:
-    version: 2
-    RefIds: []
+  outsideSpawn: []
+  insideSpawn: []
+  waitingTime: 5
 --- !u!1 &2100567806
 GameObject:
   m_ObjectHideFlags: 0

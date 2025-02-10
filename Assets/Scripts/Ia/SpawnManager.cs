@@ -4,7 +4,7 @@ public class SpawnManager : MonoBehaviour
 {
     public Transform[] outsideSpawn; // Spawn points del grupo A
     public Transform[] insideSpawn; // Spawn points del grupo B
-    public float tiempoEntreTeleports = 5f; // Tiempo antes de cambiar de posición
+    public float waitingTime;
 
     private Transform[] spawnActual; // Grupo de spawn activo
     private float timer;
@@ -12,7 +12,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         SeleccionarGrupo();
-        timer = tiempoEntreTeleports;
+        timer = waitingTime;
         TeleportarEnemigo(); // Hacer que empiece en un punto aleatorio
     }
 
@@ -23,7 +23,7 @@ public class SpawnManager : MonoBehaviour
         if (timer <= 0)
         {
             TeleportarEnemigo();
-            timer = tiempoEntreTeleports; // Reiniciar el temporizador
+            timer = waitingTime; // Reiniciar el temporizador
         }
     }
 
@@ -46,11 +46,5 @@ public class SpawnManager : MonoBehaviour
 
         int index = Random.Range(0, spawnActual.Length); // Elegir un spawn aleatorio
         transform.position = spawnActual[index].position; // Mover el enemigo
-    }
-
-    // Método para ajustar la frecuencia de teletransporte en tiempo real
-    public void AjustarFrecuencia(float nuevaFrecuencia)
-    {
-        tiempoEntreTeleports = nuevaFrecuencia;
     }
 }
