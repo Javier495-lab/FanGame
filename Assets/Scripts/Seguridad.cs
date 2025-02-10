@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Seguridad : MonoBehaviour
 {
@@ -14,8 +13,7 @@ public class Seguridad : MonoBehaviour
     [SerializeField]private int currentCam;
     private bool quitarCanvasOficina = true;
     [Range(0, 100)] public float[] integrities;
-    [SerializeField] private bool isDecreasing;
-    public float decreaseRate = 5f;
+    public float decreaseRate = 2f;
     [SerializeField] private bool[] goal = new bool[5];
     public TextMeshProUGUI integrity;
     
@@ -37,10 +35,7 @@ public class Seguridad : MonoBehaviour
             }
             quitarCanvasOficina = false;
         }
-        if (isDecreasing)
-        {
-            DecreaseIntegrity();
-        }
+        
     }
     void OnMouseDown()
     {
@@ -88,19 +83,18 @@ public class Seguridad : MonoBehaviour
 
     private void UpdateIntegrityText()
     {
-        if (integrity != null && currentCam < integrities.Length)
-        {
-            integrity.text = "Integrity: " + integrities[currentCam].ToString("F0");
-        }
+        
+        integrity.text = "Integrity: " + integrities[currentCam].ToString("F0");
+        
     }
 
-    private void DecreaseIntegrity()
+    public void DecreaseIntegrity(int damagedCheckpoint)
     {
         for (int i = 0; i < integrities.Length; i++)
         {
             if (integrities[i] > 0)
             {
-                integrities[currentCam] -= decreaseRate * Time.deltaTime;
+                integrities[damagedCheckpoint] -= decreaseRate * Time.deltaTime;
                 //integrities[i] = Mathf.Clamp(integrities[i], 0, 100);
             }
         }

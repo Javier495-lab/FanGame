@@ -32429,8 +32429,7 @@ MonoBehaviour:
   - 100
   - 100
   - 100
-  isDecreasing: 0
-  decreaseRate: 5
+  decreaseRate: 2
   goal: 0000000000
   integrity: {fileID: 642756906}
 --- !u!4 &1600427379
@@ -42894,6 +42893,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 2081233113}
   speed: 2
+  checkpointIndex: 0
   waitingPoint: {fileID: 952290996}
   outsideSpawn:
   - {fileID: 94460155}
@@ -42910,6 +42910,7 @@ MonoBehaviour:
   - {fileID: 2107288825}
   waitingTimeMax: 7
   waitingTimeMin: 2
+  Laptop: {fileID: 1600427376}
 --- !u!95 &2081233116
 Animator:
   serializedVersion: 7
@@ -45780,5 +45781,5 @@ SceneRoots:
   - {fileID: 1073026413}
   - {fileID: 2039876283}
   - {fileID: 311950922}
-  - {fileID: 1727153347}
   - {fileID: 2081233114}
+  - {fileID: 1727153347}

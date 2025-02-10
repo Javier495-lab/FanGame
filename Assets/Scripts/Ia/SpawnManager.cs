@@ -5,6 +5,7 @@ public class SpawnManager : MonoBehaviour
     [Header("Animatronico")]
     public GameObject enemy;
     public float speed;
+    public int checkpointIndex;
     [Header("SpawnPoints")]
     public Transform waitingPoint;
     public Transform[] outsideSpawn;
@@ -13,14 +14,12 @@ public class SpawnManager : MonoBehaviour
     [Header("TiempoSeguro")]
     public float waitingTimeMax;
     public float waitingTimeMin;
+    [Header("Ref. Camaras")]
+    public GameObject Laptop;
+    
 
-    void Start()
+    public void RandomNumber()
     {
-        
-    }
-
-    void Update()
-    {
-        
+        checkpointIndex = Random.Range(0, 5);
     }
 }
