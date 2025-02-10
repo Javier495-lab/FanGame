@@ -23,12 +23,4 @@ public class SpawnManager : MonoBehaviour
     {
         
     }
-
-    /*void TeleportarEnemigo()
-    {
-        if (spawnActual.Length == 0) return; // Seguridad para evitar errores
-
-        int index = Random.Range(0, spawnActual.Length); // Elegir un spawn aleatorio
-        transform.position = spawnActual[index].position; // Mover el enemigo
-    }*/
 }
