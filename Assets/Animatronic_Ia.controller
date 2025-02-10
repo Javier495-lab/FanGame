@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camaras: {fileID: 0}
+  CheckpointIndex: 0
 --- !u!114 &-6038567334579569358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -205,8 +206,6 @@ MonoBehaviour:
   Animatronic: {fileID: 0}
   camaras: {fileID: 0}
   Objective: {fileID: 0}
-  CheckpointIndex: 0
-  speed: 0
 --- !u!1102 &-4980397163442140207
 AnimatorState:
   serializedVersion: 6
@@ -302,6 +301,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c36c536695242a43911e0880373cc94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Animatronic: {fileID: 0}
+  Objective: {fileID: 0}
+  CheckpointIndex: 0
 --- !u!1102 &-830576166920626903
 AnimatorState:
   serializedVersion: 6

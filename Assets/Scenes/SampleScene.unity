@@ -32429,7 +32429,7 @@ MonoBehaviour:
   - 100
   - 100
   - 100
-  decreaseRate: 2
+  decreaseRate: 0.7
   goal: 0000000000
   integrity: {fileID: 642756906}
 --- !u!4 &1600427379
