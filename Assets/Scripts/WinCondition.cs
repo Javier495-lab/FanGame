@@ -18,6 +18,7 @@ public class WinCondition : MonoBehaviour
     public bool[] goal = new bool[6];
 
     public BoxCollider palancaColl;
+    private MeshCollider meshCollider;
 
     void OnMouseDown()
     {
@@ -27,6 +28,7 @@ public class WinCondition : MonoBehaviour
             oficina.enabled = false;
             consola.enabled = true;
             quitarCanvasOficina = true;
+            meshCollider.enabled = false;
         }
     }
     public void Volver()
@@ -34,6 +36,7 @@ public class WinCondition : MonoBehaviour
         consola.enabled = false;
         oficina.enabled = true;
         palancaColl.enabled = true;
+        meshCollider.enabled = true;
     }
 
     void Start()
@@ -44,6 +47,7 @@ public class WinCondition : MonoBehaviour
             int index = i;
             buttons[i].onClick.AddListener(() => StartIncrease(index));
         }
+        meshCollider = GetComponent<MeshCollider>();
     }
 
     void Update()
@@ -76,6 +80,7 @@ public class WinCondition : MonoBehaviour
             oficina.enabled = true;
             StopIncreases();
             quitarCanvasOficina = false;
+            meshCollider.enabled = true;
         }
     }
 

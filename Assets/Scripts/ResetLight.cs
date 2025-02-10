@@ -17,12 +17,15 @@ public class ResetLight : MonoBehaviour
 
     [SerializeField] private bool[] isIncreasing = new bool[5];
     [SerializeField]private bool[] goal = new bool[5];
+
+    private BoxCollider boxCollider;
     void OnMouseDown()
     {
         if (GameManager.instance.dark)
         {
             oficina.enabled = false;
             reset.enabled = true;
+            boxCollider.enabled = false;
         }
     }
     public void Volver()
@@ -30,6 +33,7 @@ public class ResetLight : MonoBehaviour
         reset.enabled = false;
         oficina.enabled = true;
         palanca.enabled = true;
+        boxCollider.enabled = true;
     }
 
     void Start()
@@ -40,6 +44,7 @@ public class ResetLight : MonoBehaviour
             int index = i;
             buttons[i].onClick.AddListener(() => StartIncrease(index));
         }
+        boxCollider = GetComponent<BoxCollider>();
     }
 
     void Update()
