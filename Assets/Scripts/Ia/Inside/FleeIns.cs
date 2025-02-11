@@ -5,8 +5,10 @@ public class FleeIns : StateMachineBehaviour
     public GameObject Animatronic;
     private int fleeIndex;
     private float speed;
+    private float tiempoDeHuida = 3;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        tiempoDeHuida = 3;
         animator.SetBool("Flee", false);
         fleeIndex = 1;
         speed = 6;
@@ -21,7 +23,7 @@ public class FleeIns : StateMachineBehaviour
         {
             fleeIndex = 0; 
         }
-        float tiempoDeHuida = 3;
+        
         tiempoDeHuida -= Time.deltaTime;
         if (tiempoDeHuida <= 0)
         {

@@ -9,6 +9,7 @@ public class WaitToEnter : StateMachineBehaviour
     public GameObject player;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.SetBool("OnTheMove", false);
         animator.SetInteger("Spawn1_Bestia", 4);
         animator.SetInteger("Ambos", 0);
         tipoDeEntrada = Random.Range(1, 4);
@@ -34,7 +35,7 @@ public class WaitToEnter : StateMachineBehaviour
                 animator.SetInteger("Spawn1_Bestia", tipoDeEntrada);
             }
         }
-        if (GameManager.instance.encendidoManual || !GameManager.instance.apagadoSeguro)
+        if (GameManager.instance.encendidoManual || !GameManager.instance.apagadoSeguro && !GameManager.instance.dark)
         {
             animator.SetBool("Flee", true);
         }

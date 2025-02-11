@@ -27,7 +27,7 @@ public class InsideSpawn2 : StateMachineBehaviour
         {
             animator.SetBool("Flee", true);
         }
-        if (GameManager.instance.encendidoManual || !GameManager.instance.apagadoSeguro)
+        if (GameManager.instance.encendidoManual || !GameManager.instance.apagadoSeguro && !GameManager.instance.dark)
         {
             animator.SetBool("Flee", true);
         }

@@ -5,7 +5,8 @@ public class WaitingState : StateMachineBehaviour
     public float waitingTime;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       waitingTime = Random.Range(animator.GetComponent<SpawnManager>().waitingTimeMin, animator.GetComponent<SpawnManager>().waitingTimeMax);
+        animator.SetBool("Vulnerable", false);
+        waitingTime = Random.Range(animator.GetComponent<SpawnManager>().waitingTimeMin, animator.GetComponent<SpawnManager>().waitingTimeMax);
         animator.SetBool("Waiting", false);
     }
 
@@ -22,7 +23,7 @@ public class WaitingState : StateMachineBehaviour
             {
                 if (GameManager.instance.dark)
                 {
-                    animator.SetTrigger("Vulnerable");
+                    animator.SetBool("Vulnerable", true);
                 }
                 animator.SetBool("OnTheMove", true);
             }

@@ -41,7 +41,7 @@ public class FoxyBehabiour : StateMachineBehaviour
             }
         }
         
-        if (GameManager.instance.encendidoManual || !GameManager.instance.apagadoSeguro)
+        if (GameManager.instance.encendidoManual || !GameManager.instance.apagadoSeguro && !GameManager.instance.dark)
         {
             animator.SetBool("Flee", true);
         }

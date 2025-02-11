@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class InsideSpawn3 : StateMachineBehaviour
 {
+    private float deathCountDown = 5;
     public float waitingTime;
     private float playerPos;
     public GameObject Animatronic;
@@ -10,6 +11,7 @@ public class InsideSpawn3 : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         ahiEsta = false;
+        deathCountDown = 5;
         waitingTime = Random.Range(animator.GetComponent<SpawnManager>().waitingTimeMin, animator.GetComponent<SpawnManager>().waitingTimeMax);
         Animatronic = animator.GetComponent<SpawnManager>().enemy;
         Animatronic.transform.position = animator.GetComponent<SpawnManager>().insideSpawn[3].position;
@@ -21,12 +23,12 @@ public class InsideSpawn3 : StateMachineBehaviour
         waitingTime -= Time.deltaTime;
         playerPos = player.GetComponent<Oficina>().currenPos;
 
-        if (waitingTime <= 0 && playerPos != 2)
+        if (waitingTime <= 0)
         {
             //se acabó la fiesta
             ahiEsta = true;
             Animatronic.transform.position = animator.GetComponent<SpawnManager>().insideSpawn[4].position;
-            float deathCountDown = 5;
+            
             deathCountDown -= Time.deltaTime;
             if (deathCountDown <= 0 || playerPos == 2)
             {
@@ -37,7 +39,7 @@ public class InsideSpawn3 : StateMachineBehaviour
         {
             animator.SetBool("Flee", true);
         }
-        if (GameManager.instance.encendidoManual || !GameManager.instance.apagadoSeguro && !ahiEsta)
+        if (GameManager.instance.encendidoManual || !GameManager.instance.apagadoSeguro && !ahiEsta && !GameManager.instance.dark)
         {
             animator.SetBool("Flee", true);
         }
