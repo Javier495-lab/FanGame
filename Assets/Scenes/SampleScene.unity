@@ -43201,8 +43201,8 @@ MonoBehaviour:
   - {fileID: 1764931170}
   - {fileID: 185244471}
   - {fileID: 2107288825}
-  waitingTimeMax: 7
-  waitingTimeMin: 2
+  waitingTimeMax: 4
+  waitingTimeMin: 0.5
   Laptop: {fileID: 1600427376}
   Player: {fileID: 1342387017}
 --- !u!95 &2081233116
