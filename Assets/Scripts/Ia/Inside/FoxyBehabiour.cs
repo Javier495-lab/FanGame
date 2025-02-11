@@ -1,0 +1,49 @@
+using UnityEngine;
+
+public class FoxyBehabiour : StateMachineBehaviour
+{
+    public GameObject Animatronic;
+    public GameObject player;
+    private int runIndex;
+    private float speed;
+    private float runningSpeedB;
+    private bool ahiEsta = false;
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        ahiEsta = false;
+        runIndex = 1;
+        speed = 6;
+        Animatronic = animator.GetComponent<SpawnManager>().enemy;
+        speed = animator.GetComponent<SpawnManager>().runningSpeed;
+        runningSpeedB = animator.GetComponent<SpawnManager>().runningSpeedBlind;
+        player = animator.GetComponent<SpawnManager>().Player;
+    }
+
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        runningSpeedB -= Time.deltaTime;
+        if (runningSpeedB <= 0)
+        {
+            Animatronic.transform.position = Vector3.MoveTowards(Animatronic.transform.position, animator.GetComponent<SpawnManager>().insideSpawn[runIndex].position, speed * Time.deltaTime);
+            Animatronic.transform.LookAt(animator.GetComponent<SpawnManager>().insideSpawn[runIndex]);
+            if (Vector3.Distance(Animatronic.transform.position, animator.GetComponent<SpawnManager>().insideSpawn[1].position) <= 0.2f)
+            {
+                runIndex = 4;
+                ahiEsta = true;
+            }
+            else if (player.GetComponent<Oficina>().flashlightB && ahiEsta)
+            {
+                animator.SetBool("Flee", true);
+            }
+            if (Vector3.Distance(Animatronic.transform.position, animator.GetComponent<SpawnManager>().insideSpawn[4].position) <= 0.4f)
+            {
+                animator.SetTrigger("Jumpscare");
+            }
+        }
+        
+        if (GameManager.instance.encendidoManual || !GameManager.instance.apagadoSeguro)
+        {
+            animator.SetBool("Flee", true);
+        }
+    }
+}

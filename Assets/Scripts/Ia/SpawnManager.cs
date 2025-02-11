@@ -1,11 +1,18 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawnManager : MonoBehaviour
 {
     [Header("Animatronico")]
     public GameObject enemy;
+    [Header("Fuera")]
     public float speed;
     public int checkpointIndex;
+    [Header("Dentro")]
+    public float insideSpeedMin;
+    public float insideSpeedMax;
+    public float runningSpeedBlind;
+    public float runningSpeed;
     [Header("SpawnPoints")]
     public Transform waitingPoint;
     public Transform[] outsideSpawn;
@@ -14,12 +21,17 @@ public class SpawnManager : MonoBehaviour
     [Header("TiempoSeguro")]
     public float waitingTimeMax;
     public float waitingTimeMin;
-    [Header("Ref. Camaras")]
+    [Header("Ref. Camaras y Jugador")]
     public GameObject Laptop;
+    public GameObject Player;
     
 
     public void RandomNumber()
     {
         checkpointIndex = Random.Range(0, 5);
+    }
+    public void VolverAlMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }

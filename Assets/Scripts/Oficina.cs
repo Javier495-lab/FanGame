@@ -32,8 +32,6 @@ public class Oficina : MonoBehaviour
     private bool isDark = true;
     private bool leverTrigger = true;
 
-    public static GameManager Instance { get; private set; }
-
     void Start()
     {
         currentButtons = fase[0].posButtons[0];
