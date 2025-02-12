@@ -84,19 +84,23 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator ReducePowerGradually(float amount)
     {
-        float initialPower = power;
-        float targetPower = power - amount;
-        float duration = amount / 2;
-        float elapsedTime = 0f;
+        float remainingAmount = amount;
 
-        while (elapsedTime < duration)
+        while (remainingAmount > 0f)
         {
-            elapsedTime += Time.deltaTime;
-            power = Mathf.Lerp(initialPower, targetPower, elapsedTime / duration);
+            float reductionStep = Time.deltaTime;
+
+            if (remainingAmount < reductionStep)
+            {
+                power -= remainingAmount;
+                break;
+            }
+
+            power -= reductionStep;
+            remainingAmount -= reductionStep;
+
             yield return null;
         }
-
-        power = targetPower; // Asegurarse de que llegue al valor exacto
     }
 
     public void ResetPower()

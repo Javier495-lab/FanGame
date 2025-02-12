@@ -68,6 +68,7 @@ public class Seguridad : MonoBehaviour
         {
             GameManager.instance.AddPower(0.4f);
             lights[currentCam].enabled = true;
+            flash.gameObject.SetActive(false);
             GameManager.instance.SubPowerLight(0.4f);
             lights[currentCam].enabled = false;
         } 
