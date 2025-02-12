@@ -30956,6 +30956,7 @@ MonoBehaviour:
   - {fileID: 1946258480}
   - {fileID: 2029895537}
   - {fileID: 1831491923}
+  flash: {fileID: 716819667}
   lights:
   - {fileID: 1984121764}
   - {fileID: 1298821420}

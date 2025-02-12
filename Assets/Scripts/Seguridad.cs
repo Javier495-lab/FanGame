@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Seguridad : MonoBehaviour
@@ -8,6 +9,7 @@ public class Seguridad : MonoBehaviour
     public Camera mainCamera;
     public Camera[] secCamaras;
     private Camera camaraActual;
+    public Button flash;
     public Light[] lights;
     public float batería;
     [SerializeField]private int currentCam;
