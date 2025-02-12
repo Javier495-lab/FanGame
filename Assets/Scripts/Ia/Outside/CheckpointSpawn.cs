@@ -7,6 +7,7 @@ public class CheckpointSpawn : StateMachineBehaviour
     public GameObject camaras;
     public Transform Objective;
     private int CheckpointIndex;
+    private int offLightsChance;
     private float speed;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -15,6 +16,7 @@ public class CheckpointSpawn : StateMachineBehaviour
         animator.SetBool("OnTheMove", false);
 
         CheckpointIndex = animator.GetComponent<SpawnManager>().checkpointIndex;
+        offLightsChance = animator.GetComponent<SpawnManager>().offLightsChance;
 
         speed = animator.GetComponent<SpawnManager>().speed;
         Animatronic = animator.GetComponent<SpawnManager>().enemy;

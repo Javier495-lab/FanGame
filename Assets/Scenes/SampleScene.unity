@@ -18884,6 +18884,92 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!1001 &1060337020
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1297218270}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 2e257cbddb641174b8f6c4da698b765a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.651251
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2e257cbddb641174b8f6c4da698b765a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.651251
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2e257cbddb641174b8f6c4da698b765a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4.651251
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2e257cbddb641174b8f6c4da698b765a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2e257cbddb641174b8f6c4da698b765a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2e257cbddb641174b8f6c4da698b765a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2e257cbddb641174b8f6c4da698b765a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2e257cbddb641174b8f6c4da698b765a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2e257cbddb641174b8f6c4da698b765a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2e257cbddb641174b8f6c4da698b765a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2e257cbddb641174b8f6c4da698b765a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2e257cbddb641174b8f6c4da698b765a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2e257cbddb641174b8f6c4da698b765a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -25806564299642730, guid: 2e257cbddb641174b8f6c4da698b765a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 17d54b665f6c525419604c3584e88cec, type: 2}
+    - target: {fileID: -25806564299642730, guid: 2e257cbddb641174b8f6c4da698b765a, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 17d54b665f6c525419604c3584e88cec, type: 2}
+    - target: {fileID: -25806564299642730, guid: 2e257cbddb641174b8f6c4da698b765a, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 17d54b665f6c525419604c3584e88cec, type: 2}
+    - target: {fileID: 919132149155446097, guid: 2e257cbddb641174b8f6c4da698b765a, type: 3}
+      propertyPath: m_Name
+      value: RK-1017
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e257cbddb641174b8f6c4da698b765a, type: 3}
+--- !u!4 &1060337021 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2e257cbddb641174b8f6c4da698b765a, type: 3}
+  m_PrefabInstance: {fileID: 1060337020}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1060418034
 GameObject:
   m_ObjectHideFlags: 0
@@ -24643,6 +24729,97 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1297218267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1297218270}
+  - component: {fileID: 1297218269}
+  - component: {fileID: 1297218268}
+  m_Layer: 0
+  m_Name: Bichejo (1)
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1297218268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297218267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f2dfcd8de92bb42ac90dc89042215a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 1297218267}
+  speed: 0
+  checkpointIndex: 0
+  offLightsChance: 0
+  insideSpeedMin: 1
+  insideSpeedMax: 4
+  runningSpeedBlind: 3.5
+  runningSpeed: 18
+  waitingPoint: {fileID: 952290996}
+  outsideSpawn: []
+  insideSpawn:
+  - {fileID: 649149965}
+  - {fileID: 2145813183}
+  - {fileID: 1875469974}
+  - {fileID: 1264744378}
+  - {fileID: 1344349684}
+  - {fileID: 123506739}
+  checkpoints: []
+  waitingTimeMax: 4
+  waitingTimeMin: 0.5
+  Laptop: {fileID: 1600427376}
+  Player: {fileID: 1342387017}
+  Consola: {fileID: 9936434}
+--- !u!95 &1297218269
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297218267}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5fc5bcbabb037874d84550b18a3a0e45, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &1297218270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297218267}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.80141515, z: -0, w: 0.5981086}
+  m_LocalPosition: {x: 21.995, y: 3.516, z: 21.429}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1060337021}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -106.531, z: 0}
 --- !u!1 &1298821417
 GameObject:
   m_ObjectHideFlags: 0
@@ -30713,7 +30890,7 @@ MonoBehaviour:
   - 0
   - 0
   maxValue: 100
-  increaseSpeed: 50
+  increaseSpeed: 25
   buttons:
   - {fileID: 2128906784}
   - {fileID: 184555109}
@@ -40163,10 +40340,11 @@ MonoBehaviour:
   enemy: {fileID: 2081233113}
   speed: 2
   checkpointIndex: 0
-  insideSpeedMin: 1
-  insideSpeedMax: 4
-  runningSpeedBlind: 3.5
-  runningSpeed: 18
+  offLightsChance: 0
+  insideSpeedMin: 0
+  insideSpeedMax: 0
+  runningSpeedBlind: 0
+  runningSpeed: 0
   waitingPoint: {fileID: 952290996}
   outsideSpawn:
   - {fileID: 94460155}
@@ -40174,13 +40352,7 @@ MonoBehaviour:
   - {fileID: 466856587}
   - {fileID: 779269489}
   - {fileID: 1030183298}
-  insideSpawn:
-  - {fileID: 649149965}
-  - {fileID: 2145813183}
-  - {fileID: 1875469974}
-  - {fileID: 1264744378}
-  - {fileID: 1344349684}
-  - {fileID: 123506739}
+  insideSpawn: []
   checkpoints:
   - {fileID: 1510319585}
   - {fileID: 1917856319}
@@ -40191,6 +40363,7 @@ MonoBehaviour:
   waitingTimeMin: 0.5
   Laptop: {fileID: 1600427376}
   Player: {fileID: 1342387017}
+  Consola: {fileID: 0}
 --- !u!95 &2081233116
 Animator:
   serializedVersion: 7
@@ -43111,4 +43284,5 @@ SceneRoots:
   - {fileID: 2039876283}
   - {fileID: 311950922}
   - {fileID: 2081233114}
+  - {fileID: 1297218270}
   - {fileID: 1727153347}

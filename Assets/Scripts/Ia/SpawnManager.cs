@@ -8,6 +8,7 @@ public class SpawnManager : MonoBehaviour
     [Header("Fuera")]
     public float speed;
     public int checkpointIndex;
+    public int offLightsChance;
     [Header("Dentro")]
     public float insideSpeedMin;
     public float insideSpeedMax;
@@ -24,6 +25,7 @@ public class SpawnManager : MonoBehaviour
     [Header("Ref. Camaras y Jugador")]
     public GameObject Laptop;
     public GameObject Player;
+    public GameObject Consola;    
     
 
     public void RandomNumber()

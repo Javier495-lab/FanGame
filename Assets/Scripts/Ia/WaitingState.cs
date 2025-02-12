@@ -21,7 +21,7 @@ public class WaitingState : StateMachineBehaviour
             }
             else
             {
-                if (GameManager.instance.dark)
+                if (GameManager.instance.dark || GameManager.instance.apagadoSeguro)
                 {
                     animator.SetBool("Vulnerable", true);
                 }

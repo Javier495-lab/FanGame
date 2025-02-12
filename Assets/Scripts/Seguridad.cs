@@ -64,11 +64,11 @@ public class Seguridad : MonoBehaviour
     {
         if (!lights[currentCam].enabled)
         {
-            GameManager.instance.AddPower(0.1f);
+            GameManager.instance.AddPower(0.4f);
             lights[currentCam].enabled = true;
         } else if (lights[currentCam].enabled)
         {
-            GameManager.instance.SubPower(0.1f);
+            GameManager.instance.SubPower(0.4f);
             lights[currentCam].enabled = false;
         }
     }
