@@ -8,16 +8,17 @@ public class CheckpointSpawn : StateMachineBehaviour
     public Transform Objective;
     private int CheckpointIndex;
     private int offLightsChance;
+    private int laInjusta;
     private float speed;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.GetComponent<SpawnManager>().RandomNumber();
-        animator.SetInteger("Ambos", 0);
         animator.SetBool("OnTheMove", false);
 
         CheckpointIndex = animator.GetComponent<SpawnManager>().checkpointIndex;
         offLightsChance = animator.GetComponent<SpawnManager>().offLightsChance;
 
+        laInjusta = Random.Range(0, offLightsChance);
         speed = animator.GetComponent<SpawnManager>().speed;
         Animatronic = animator.GetComponent<SpawnManager>().enemy;
         Animatronic.transform.position = animator.GetComponent<SpawnManager>().outsideSpawn[CheckpointIndex].position;
@@ -33,7 +34,7 @@ public class CheckpointSpawn : StateMachineBehaviour
         {
             animator.SetTrigger("CheckpointDamage");
         }
-        if (camaras.GetComponent<Seguridad>().lights[CheckpointIndex].enabled == true)
+        if ((camaras.GetComponent<Seguridad>().lights[CheckpointIndex].enabled == true) || (GameManager.instance.dark && laInjusta != 1))
         {
             animator.SetBool("Flee", true);
         }

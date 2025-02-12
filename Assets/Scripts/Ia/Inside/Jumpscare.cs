@@ -16,6 +16,7 @@ public class Jumpscare : StateMachineBehaviour
         consola = animator.GetComponent<SpawnManager>().Consola;
         consola.GetComponent<WinCondition>().Volver();
         camaras.GetComponent<Seguridad>().oficina.enabled = false;
+        animator.GetComponent<SpawnManager>().jumscareLight.enabled = true;
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

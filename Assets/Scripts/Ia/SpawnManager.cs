@@ -5,6 +5,7 @@ public class SpawnManager : MonoBehaviour
 {
     [Header("Animatronico")]
     public GameObject enemy;
+    public Light jumscareLight;
     [Header("Fuera")]
     public float speed;
     public int checkpointIndex;

@@ -68,7 +68,7 @@ public class Seguridad : MonoBehaviour
             lights[currentCam].enabled = true;
         } else if (lights[currentCam].enabled)
         {
-            GameManager.instance.SubPower(0.4f);
+            GameManager.instance.SubPowerLight(0.4f);
             lights[currentCam].enabled = false;
         }
     }

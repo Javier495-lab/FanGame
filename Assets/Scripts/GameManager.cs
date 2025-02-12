@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -72,10 +73,30 @@ public class GameManager : MonoBehaviour
     {
         power += plusPower;
     }
-
+    
     public void SubPower(float subPower)
     {
         power -= subPower;
+    }
+    public void SubPowerLight(float subPower)
+    {
+        StartCoroutine(ReducePowerGradually(subPower));
+    }
+    private IEnumerator ReducePowerGradually(float amount)
+    {
+        float initialPower = power;
+        float targetPower = power - amount;
+        float duration = amount / 2;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            power = Mathf.Lerp(initialPower, targetPower, elapsedTime / duration);
+            yield return null;
+        }
+
+        power = targetPower; // Asegurarse de que llegue al valor exacto
     }
 
     public void ResetPower()
