@@ -1,0 +1,26 @@
+using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+
+public class Icon : MonoBehaviour
+{
+    private float blinkSpeed = 0.1f;
+    private RawImage icon;
+
+    private void Start()
+    {
+        StartCoroutine(BlinkCoroutine());
+    }
+
+    private IEnumerator BlinkCoroutine()
+    {
+        while (true)
+        {
+            icon.enabled = true;
+            yield return new WaitForSeconds(blinkSpeed);
+
+            icon.enabled=false;
+            yield return new WaitForSeconds(blinkSpeed);
+        }
+    }
+}
