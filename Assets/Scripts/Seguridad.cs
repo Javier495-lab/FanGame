@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine;
+using System.Collections;
 
 public class Seguridad : MonoBehaviour
 {
@@ -10,8 +11,9 @@ public class Seguridad : MonoBehaviour
     public Camera[] secCamaras;
     private Camera camaraActual;
     public Button flash;
+    public float flashDuration;  
     public Light[] lights;
-    public float batería;
+    public float bateria;
     [SerializeField]private int currentCam;
     private bool quitarCanvasOficina = true;
     [Range(0, 100)] public float[] integrities;
@@ -61,17 +63,31 @@ public class Seguridad : MonoBehaviour
         camaraActual.enabled = true;
         UpdateIntegrityText();
     }
-
     public void Flash()
     {
+        StartCoroutine(Flashear());
+    }
+    private IEnumerator Flashear()
+    {
+        
         if (!lights[currentCam].enabled)
         {
             GameManager.instance.AddPower(0.4f);
             lights[currentCam].enabled = true;
             flash.gameObject.SetActive(false);
             GameManager.instance.SubPowerLight(0.4f);
+            float elapsedTime = 0f;
+            while (lights[currentCam].intensity > 0)
+            {
+                elapsedTime += Time.deltaTime;
+                lights[currentCam].GetComponent<Light>().intensity = Mathf.Lerp(1000, 0f, elapsedTime / flashDuration);
+
+                yield return null;
+            }
             lights[currentCam].enabled = false;
-        } 
+            lights[currentCam].intensity = 1000;
+            flash.gameObject.SetActive(true);
+        }
     }
 
     public void Volver()

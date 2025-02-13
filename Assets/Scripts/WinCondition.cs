@@ -88,11 +88,11 @@ public class WinCondition : MonoBehaviour
     {
         if (isIncreasing[index])
         {
-            GameManager.instance.SubPower(0.3f);
+            GameManager.instance.SubPower(0.25f);
             isIncreasing[index] = !isIncreasing[index];
         } else if (!isIncreasing[index])
         {
-            GameManager.instance.AddPower(0.3f);
+            GameManager.instance.AddPower(0.25f);
             isIncreasing[index] = !isIncreasing[index];
         }
     }

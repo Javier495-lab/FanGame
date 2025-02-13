@@ -24867,7 +24867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1297218268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24885,8 +24885,8 @@ MonoBehaviour:
   speed: 0
   checkpointIndex: 0
   offLightsChance: 0
-  insideSpeedMin: 1
-  insideSpeedMax: 4
+  insideSpeedMin: 2
+  insideSpeedMax: 7
   runningSpeedBlind: 3.5
   runningSpeed: 18
   waitingPoint: {fileID: 952290996}
@@ -30957,13 +30957,14 @@ MonoBehaviour:
   - {fileID: 2029895537}
   - {fileID: 1831491923}
   flash: {fileID: 716819667}
+  flashDuration: 5
   lights:
   - {fileID: 1984121764}
   - {fileID: 1298821420}
   - {fileID: 2127351406}
   - {fileID: 1966527241}
   - {fileID: 1872400663}
-  "bater\xEDa": 0
+  bateria: 0
   currentCam: 0
   integrities:
   - 100
@@ -40431,7 +40432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2081233114
 Transform:
   m_ObjectHideFlags: 0
