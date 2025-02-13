@@ -15,18 +15,11 @@ public class WaitingState : StateMachineBehaviour
         waitingTime -= Time.deltaTime;
         if (waitingTime <= 0)
         {
-            if (GameManager.instance.apagadoSeguro)
-            {
-                animator.SetTrigger("ApagadoSeguro");
-            }
-            else
-            {
                 if (GameManager.instance.dark || GameManager.instance.apagadoSeguro)
                 {
                     animator.SetBool("Vulnerable", true);
                 }
                 animator.SetBool("OnTheMove", true);
-            }
         }
     }
 }

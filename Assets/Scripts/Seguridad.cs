@@ -20,6 +20,8 @@ public class Seguridad : MonoBehaviour
     public float decreaseRate = 2f;
     [SerializeField] private bool[] goal = new bool[5];
     public TextMeshProUGUI integrity;
+    public GameObject[] dangerIcons;
+    public GameObject dangerAudio;
     
     private void Start()
     {

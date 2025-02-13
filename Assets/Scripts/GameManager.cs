@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
 
         while (remainingAmount > 0f)
         {
-            float reductionStep = Time.deltaTime *0.01f;
+            float reductionStep = Time.deltaTime *0.02f;
 
             if (remainingAmount < reductionStep)
             {

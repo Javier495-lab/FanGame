@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Jumpscare : StateMachineBehaviour
@@ -10,18 +11,20 @@ public class Jumpscare : StateMachineBehaviour
     {
         jumpscareDuration = 2.5f;
         Animatronic = animator.GetComponent<SpawnManager>().enemy;
-        Animatronic.transform.position = animator.GetComponent<SpawnManager>().insideSpawn[5].position;
+        
         camaras = animator.GetComponent<SpawnManager>().Laptop;
         camaras.GetComponent<Seguridad>().Volver();
         consola = animator.GetComponent<SpawnManager>().Consola;
         consola.GetComponent<WinCondition>().Volver();
+        camaras.GetComponent<ResetLight>().Volver();
         camaras.GetComponent<Seguridad>().oficina.enabled = false;
         animator.GetComponent<SpawnManager>().jumscareLight.enabled = true;
+        animator.GetComponent<SpawnManager>().jumpscareSound.SetActive(true);
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+        Animatronic.transform.position = animator.GetComponent<SpawnManager>().insideSpawn[5].position;
         jumpscareDuration -= Time.deltaTime;
         if (jumpscareDuration <= 0)
         {

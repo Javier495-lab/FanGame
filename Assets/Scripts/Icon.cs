@@ -9,6 +9,7 @@ public class Icon : MonoBehaviour
 
     private void Start()
     {
+        icon = GetComponent<RawImage>();
         StartCoroutine(BlinkCoroutine());
     }
 
