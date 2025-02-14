@@ -22,6 +22,7 @@ public class Seguridad : MonoBehaviour
     public TextMeshProUGUI integrity;
     public GameObject[] dangerIcons;
     public GameObject dangerAudio;
+    public GameObject flashAudio;
     
     private void Start()
     {
@@ -74,20 +75,23 @@ public class Seguridad : MonoBehaviour
         
         if (!lights[currentCam].enabled)
         {
+            int flashedCam = currentCam;
             GameManager.instance.AddPower(0.4f);
-            lights[currentCam].enabled = true;
+            lights[flashedCam].enabled = true;
             flash.gameObject.SetActive(false);
+            flashAudio.SetActive(true);
             GameManager.instance.SubPowerLight(0.4f);
             float elapsedTime = 0f;
-            while (lights[currentCam].intensity > 0)
+            while (lights[flashedCam].intensity > 0)
             {
                 elapsedTime += Time.deltaTime;
-                lights[currentCam].GetComponent<Light>().intensity = Mathf.Lerp(1000, 0f, elapsedTime / flashDuration);
+                lights[flashedCam].GetComponent<Light>().intensity = Mathf.Lerp(1000, 0f, elapsedTime / flashDuration);
 
                 yield return null;
             }
-            lights[currentCam].enabled = false;
-            lights[currentCam].intensity = 1000;
+            lights[flashedCam].enabled = false;
+            lights[flashedCam].intensity = 1000;
+            flashAudio.SetActive(false);
             flash.gameObject.SetActive(true);
         }
     }

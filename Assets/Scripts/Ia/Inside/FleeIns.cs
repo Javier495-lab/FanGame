@@ -8,11 +8,14 @@ public class FleeIns : StateMachineBehaviour
     private float tiempoDeHuida = 3;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.GetComponent<SpawnManager>().footstepsSound2.SetActive(false);
         tiempoDeHuida = 3;
         animator.SetBool("Flee", false);
         fleeIndex = 1;
         speed = 6;
         Animatronic = animator.GetComponent<SpawnManager>().enemy;
+        animator.GetComponent<SpawnManager>().fleeSound.SetActive(true);
+        animator.GetComponent<SpawnManager>().footstepsSound2.SetActive(true);
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

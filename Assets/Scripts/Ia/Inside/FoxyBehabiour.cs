@@ -17,6 +17,7 @@ public class FoxyBehabiour : StateMachineBehaviour
         speed = animator.GetComponent<SpawnManager>().runningSpeed;
         runningSpeedB = animator.GetComponent<SpawnManager>().runningSpeedBlind;
         player = animator.GetComponent<SpawnManager>().Player;
+        animator.GetComponent<SpawnManager>().footstepsSound.SetActive(true);
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -28,6 +29,8 @@ public class FoxyBehabiour : StateMachineBehaviour
             Animatronic.transform.LookAt(animator.GetComponent<SpawnManager>().insideSpawn[runIndex]);
             if (Vector3.Distance(Animatronic.transform.position, animator.GetComponent<SpawnManager>().insideSpawn[1].position) <= 0.2f)
             {
+                animator.GetComponent<SpawnManager>().footstepsSound.SetActive(false);
+                animator.GetComponent<SpawnManager>().footstepsSound2.SetActive(true);
                 runIndex = 4;
                 ahiEsta = true;
             }

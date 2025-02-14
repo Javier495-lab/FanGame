@@ -6,7 +6,13 @@ public class SpawnManager : MonoBehaviour
     [Header("Animatronico")]
     public GameObject enemy;
     public Light jumscareLight;
+    [Header("Sonidos")]
     public GameObject jumpscareSound;
+    public GameObject footstepsSound;
+    public GameObject footstepsSound2;
+    public GameObject fleeSound;
+    public GameObject fleeSoundOut;
+
     [Header("Fuera")]
     public float speed;
     public int checkpointIndex;

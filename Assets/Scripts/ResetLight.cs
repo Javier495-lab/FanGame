@@ -14,6 +14,7 @@ public class ResetLight : MonoBehaviour
     public Button[] buttons;
     public TextMeshProUGUI[] valueTexts;
     public BoxCollider palanca;
+    public GameObject BeepingSound;
 
     [SerializeField] private bool[] isIncreasing = new bool[5];
     [SerializeField]private bool[] goal = new bool[5];
@@ -53,6 +54,7 @@ public class ResetLight : MonoBehaviour
         {
             if (isIncreasing[i])
             {
+                
                 checkpoints[i] += increaseSpeed * Time.deltaTime;
                 if (checkpoints[i] > maxValue)
                 {
@@ -81,6 +83,11 @@ public class ResetLight : MonoBehaviour
             {
                 goal[i] = false;
             }
+            valueTexts[0].text = "Choeckpoint 1";
+            valueTexts[1].text = "Choeckpoint 2";
+            valueTexts[2].text = "Choeckpoint 3";
+            valueTexts[3].text = "Choeckpoint 4";
+            valueTexts[4].text = "Choeckpoint 5";
             Volver();
         }
     }
@@ -88,6 +95,7 @@ public class ResetLight : MonoBehaviour
     public void StartIncrease(int index)
     {
         isIncreasing[index] = !isIncreasing[index];
+        BeepingSound.SetActive(isIncreasing[index]);
     }
 
     bool completado()

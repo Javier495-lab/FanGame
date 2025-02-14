@@ -10,14 +10,15 @@ public class WaitToEnter : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetBool("OnTheMove", false);
-        animator.SetInteger("Spawn1_Bestia", 4);
+        animator.SetInteger("Spawn1_Bestia", 5);
         animator.SetInteger("Ambos", 0);
-        tipoDeEntrada = Random.Range(1, 4);
+        tipoDeEntrada = Random.Range(1, 5);
         waitingTime = Random.Range(animator.GetComponent<SpawnManager>().waitingTimeMin, animator.GetComponent<SpawnManager>().waitingTimeMax);
         Animatronic = animator.GetComponent<SpawnManager>().enemy;
         Animatronic.transform.position = animator.GetComponent<SpawnManager>().insideSpawn[0].position;
         player = animator.GetComponent<SpawnManager>().Player;
-        
+        animator.GetComponent<SpawnManager>().fleeSound.SetActive(false);
+        animator.GetComponent<SpawnManager>().footstepsSound2.SetActive(false);
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -26,7 +27,7 @@ public class WaitToEnter : StateMachineBehaviour
         playerPos = player.GetComponent<Oficina>().currenPos;
         if (waitingTime <= 0)
         {
-            if (tipoDeEntrada < 3 && playerPos != 2)
+            if (tipoDeEntrada < 4 && playerPos != 2)
             {
                 animator.SetInteger("Spawn1_Bestia", tipoDeEntrada);
             }

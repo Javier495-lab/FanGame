@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     public bool apagadoSeguro = false;
     private bool checkCompletado = false;
     public int checkCompletados = 0;
+    public GameObject ambient;
+    public GameObject PowerOut;
+    public GameObject PowerOn;
     public static GameManager instance { get; private set; }
 
     private GameObject enemigo;
@@ -35,6 +38,9 @@ public class GameManager : MonoBehaviour
             dark = true;
             power = 0;
             apagadoSeguro= false;
+            ambient.SetActive(false);
+            PowerOut.SetActive(true);
+            PowerOn.SetActive(false);
         }
 
         if (completado)
@@ -58,6 +64,9 @@ public class GameManager : MonoBehaviour
             dark = false;
             power = 0.2f;
             checkCompletados = 0;
+            ambient.SetActive(true);
+            PowerOut.SetActive(false);
+            PowerOn.SetActive(true);
         }
     }
     public void ModificarMaxTeleportRate(float nuevoTiempo)

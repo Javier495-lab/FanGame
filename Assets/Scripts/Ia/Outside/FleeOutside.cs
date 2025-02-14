@@ -15,6 +15,7 @@ public class FleeOutside : StateMachineBehaviour
         Animatronic = animator.GetComponent<SpawnManager>().enemy;
         camaras.GetComponent<Seguridad>().dangerIcons[CheckpointIndex].SetActive(false);
         camaras.GetComponent<Seguridad>().dangerAudio.SetActive(false);
+        animator.GetComponent<SpawnManager>().fleeSoundOut.SetActive(true);
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

@@ -24,6 +24,7 @@ public class CheckpointSpawn : StateMachineBehaviour
         Animatronic.transform.position = animator.GetComponent<SpawnManager>().outsideSpawn[CheckpointIndex].position;
         Objective = animator.GetComponent<SpawnManager>().checkpoints[CheckpointIndex];
         camaras = animator.GetComponent<SpawnManager>().Laptop;
+        animator.GetComponent<SpawnManager>().fleeSoundOut.SetActive(false);
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

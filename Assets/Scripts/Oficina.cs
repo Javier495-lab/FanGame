@@ -21,6 +21,7 @@ public class Oficina : MonoBehaviour
     public PosButtonsPorFase[] fase;
     private GameObject currentButtons;
     private Light flashlight;
+    public AudioSource flaslight;
     [Header("Movimiento")]
     public float moveSpeed;
     public float rotateSpeed;
@@ -56,9 +57,15 @@ public class Oficina : MonoBehaviour
         #region linterna
         if (GameManager.instance.dark || GameManager.instance.apagadoSeguro)
         {
-            if (Input.GetKeyDown(KeyCode.F) && currenPos == 2)
+            if (Input.GetMouseButtonDown(0) && currenPos == 2)
             {
                 flashlightB = !flashlightB;
+                flaslight.Play();
+            }
+            if (currenPos != 2 && flashlightB)
+            {
+                flaslight.Play();
+                flashlightB = false;
             }
             if (flashlightB)
             {

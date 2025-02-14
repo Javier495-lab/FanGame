@@ -7,7 +7,7 @@ public class Icon : MonoBehaviour
     private float blinkSpeed = 0.1f;
     private RawImage icon;
 
-    private void Start()
+    private void OnEnable()
     {
         icon = GetComponent<RawImage>();
         StartCoroutine(BlinkCoroutine());
