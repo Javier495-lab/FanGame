@@ -16,6 +16,7 @@ public class FleeIns : StateMachineBehaviour
         Animatronic = animator.GetComponent<SpawnManager>().enemy;
         animator.GetComponent<SpawnManager>().fleeSound.SetActive(true);
         animator.GetComponent<SpawnManager>().footstepsSound2.SetActive(true);
+        animator.GetComponent<SpawnManager>().footstepsSound.SetActive(false);
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

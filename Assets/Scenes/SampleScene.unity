@@ -23496,7 +23496,7 @@ MonoBehaviour:
   speed: 0
   checkpointIndex: 0
   offLightsChance: 0
-  insideSpeedMin: 4
+  insideSpeedMin: 2.5
   insideSpeedMax: 7
   runningSpeedBlind: 4
   runningSpeed: 17
@@ -23510,8 +23510,8 @@ MonoBehaviour:
   - {fileID: 1344349684}
   - {fileID: 123506739}
   checkpoints: []
-  waitingTimeMax: 5
-  waitingTimeMin: 1.5
+  waitingTimeMax: 6.5
+  waitingTimeMin: 1
   Laptop: {fileID: 1600427376}
   Player: {fileID: 1342387017}
   Consola: {fileID: 9936434}
