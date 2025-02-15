@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.tvOS;
 
 public class Interactor : MonoBehaviour
 {
