@@ -33269,7 +33269,7 @@ MonoBehaviour:
   - 100
   - 100
   - 100
-  decreaseRate: 0.7
+  decreaseRate: 1
   goal: 0000000000
   integrity: {fileID: 642756906}
   dangerIcons:
@@ -43187,7 +43187,7 @@ MonoBehaviour:
   fleeSoundOut: {fileID: 1168398031}
   speed: 2
   checkpointIndex: 0
-  offLightsChance: 5
+  offLightsChance: 9
   insideSpeedMin: 0
   insideSpeedMax: 0
   runningSpeedBlind: 0
