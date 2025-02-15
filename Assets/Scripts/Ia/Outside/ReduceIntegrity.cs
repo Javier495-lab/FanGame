@@ -18,6 +18,9 @@ public class ReduceIntegrity : StateMachineBehaviour
         if (camaras.GetComponent<Seguridad>().lights[CheckpointIndex].enabled == true)
         {
             animator.SetBool("Flee", true);
+        } else if(camaras.GetComponent<Seguridad>().integrities[CheckpointIndex] <= 0)
+        {
+            animator.SetBool("Flee", true);
         }
     }
 }

@@ -2,6 +2,8 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine;
 using System.Collections;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
 
 public class Seguridad : MonoBehaviour
 {
@@ -17,8 +19,8 @@ public class Seguridad : MonoBehaviour
     [SerializeField]private int currentCam;
     private bool quitarCanvasOficina = true;
     [Range(0, 100)] public float[] integrities;
-    public float decreaseRate = 2f;
-    [SerializeField] private bool[] goal = new bool[5];
+    public float decreaseRate;
+    public bool[] goal = new bool[5];
     public TextMeshProUGUI integrity;
     public GameObject[] dangerIcons;
     public GameObject dangerAudio;
@@ -42,7 +44,10 @@ public class Seguridad : MonoBehaviour
             }
             quitarCanvasOficina = false;
         }
-        
+        if (goal[0] && goal[1] && goal[2] && goal[3] && goal[4])
+        {
+            SceneManager.LoadScene("Menu");
+        }
     }
     void OnMouseDown()
     {
@@ -115,11 +120,17 @@ public class Seguridad : MonoBehaviour
     {
         for (int i = 0; i < integrities.Length; i++)
         {
-            if (integrities[i] > 0)
+            if (integrities[i] <= 0)
+            {
+                integrities[i] = 0;
+                goal[i] = true;
+                decreaseRate += 0.2f;
+            }
+            else if (integrities[i] > 0)
             {
                 integrities[damagedCheckpoint] -= decreaseRate * Time.deltaTime;
                 //integrities[i] = Mathf.Clamp(integrities[i], 0, 100);
-            }
+            } 
         }
 
         if (currentCam < integrities.Length)

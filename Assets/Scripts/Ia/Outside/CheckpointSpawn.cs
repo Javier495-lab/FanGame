@@ -6,27 +6,34 @@ public class CheckpointSpawn : StateMachineBehaviour
     public GameObject Animatronic;
     public GameObject camaras;
     public Transform Objective;
-    private int CheckpointIndex;
-    private int offLightsChance;
-    private int laInjusta;
+    public int checkpointIndex;
     private float speed;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.GetComponent<SpawnManager>().RandomNumber();
         animator.SetBool("OnTheMove", false);
 
-        CheckpointIndex = animator.GetComponent<SpawnManager>().checkpointIndex;
-        offLightsChance = animator.GetComponent<SpawnManager>().offLightsChance;
-
-        laInjusta = Random.Range(0, offLightsChance);
         speed = animator.GetComponent<SpawnManager>().speed;
         Animatronic = animator.GetComponent<SpawnManager>().enemy;
-        Animatronic.transform.position = animator.GetComponent<SpawnManager>().outsideSpawn[CheckpointIndex].position;
-        Objective = animator.GetComponent<SpawnManager>().checkpoints[CheckpointIndex];
         camaras = animator.GetComponent<SpawnManager>().Laptop;
         animator.GetComponent<SpawnManager>().fleeSoundOut.SetActive(false);
-    }
 
+        int GenerateValidRandomIndex()
+        {
+            int randomIndex;
+            do
+            {
+                animator.GetComponent<SpawnManager>().RandomNumber();
+                randomIndex = animator.GetComponent<SpawnManager>().checkpointIndex;
+            }
+            while (camaras.GetComponent<Seguridad>().goal[randomIndex]);
+
+            return randomIndex;
+        }
+
+        checkpointIndex = GenerateValidRandomIndex();
+        Objective = animator.GetComponent<SpawnManager>().checkpoints[checkpointIndex];
+        Animatronic.transform.position = animator.GetComponent<SpawnManager>().outsideSpawn[checkpointIndex].position;
+    }
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Animatronic.transform.position = Vector3.MoveTowards(Animatronic.transform.position, Objective.position, speed * Time.deltaTime);
@@ -35,7 +42,7 @@ public class CheckpointSpawn : StateMachineBehaviour
         {
             animator.SetTrigger("CheckpointDamage");
         }
-        if ((camaras.GetComponent<Seguridad>().lights[CheckpointIndex].enabled == true) || (GameManager.instance.dark && laInjusta != 1))
+        if (camaras.GetComponent<Seguridad>().lights[checkpointIndex].enabled == true)
         {
             animator.SetBool("Flee", true);
         }
