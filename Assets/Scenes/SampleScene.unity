@@ -23498,7 +23498,7 @@ MonoBehaviour:
   offLightsChance: 0
   insideSpeedMin: 2.5
   insideSpeedMax: 7
-  runningSpeedBlind: 4
+  runningSpeedBlind: 3.5
   runningSpeed: 17
   waitingPoint: {fileID: 952290996}
   outsideSpawn: []

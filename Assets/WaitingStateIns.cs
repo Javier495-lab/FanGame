@@ -9,7 +9,7 @@ public class WaitingStateIns : StateMachineBehaviour
         animator.SetBool("Vulnerable", false);
         waitingTime = Random.Range(animator.GetComponent<SpawnManager>().waitingTimeMin, animator.GetComponent<SpawnManager>().waitingTimeMax);
         animator.SetBool("Waiting", false);
-        notFair = Random.Range(0, animator.GetComponent<SpawnManager>().offLightsChance);
+        //notFair = Random.Range(0, animator.GetComponent<SpawnManager>().offLightsChance);
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -26,14 +26,14 @@ public class WaitingStateIns : StateMachineBehaviour
                 animator.SetBool("Vulnerable", false);
             }
 
-            if (GameManager.instance.dark && notFair == 1)
+            /*if (GameManager.instance.dark && notFair == 1)
             {
                 animator.SetTrigger("NotFair");
-            }
-            else
-            {
+            }*/
+            
+            
                 animator.SetBool("OnTheMove", true);
-            }
+            
         }
     }
 }
